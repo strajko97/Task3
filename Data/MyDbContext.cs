@@ -51,7 +51,8 @@ namespace Data
             modelBuilder.Entity<Country>().HasData(countries);
 
 
-            // izmena na liniji 54
+
+            // izmena na liniji 54 sa komentar from github editor
             LinkedList<Sms> smss = new LinkedList<Sms>();
             Sms sms1 = new Sms { SendTime = DateTime.Now, CountryId = 262, From = "straja", To = "tea", SmsId = 1, Text = "dsadsa", Status=1 };
             Sms sms2 = new Sms { SendTime = DateTime.Now, CountryId = 232, From = "straja", To = "tea", SmsId = 2, Text = "dahhahaha", Status = 0 };
