@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>Web_API</RootNamespace>
+    <UserSecretsId>b6192c22-76bf-4065-b302-f51ccfd3cb0d</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,5 @@
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
   </ItemGroup>
-
 
 </Project>
