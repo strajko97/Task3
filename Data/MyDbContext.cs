@@ -51,7 +51,7 @@ namespace Data
             modelBuilder.Entity<Country>().HasData(countries);
 
 
-            //Devic izmena linija 54
+            //Finalna izmena linija 54 + gitlab editor izmena
             LinkedList<Sms> smss = new LinkedList<Sms>();
             Sms sms1 = new Sms { SendTime = DateTime.Now, CountryId = 262, From = "straja", To = "tea", SmsId = 1, Text = "dsadsa", Status=1 };
             Sms sms2 = new Sms { SendTime = DateTime.Now, CountryId = 232, From = "straja", To = "tea", SmsId = 2, Text = "dahhahaha", Status = 0 };
