@@ -4,6 +4,7 @@ using Core.Models;
 using Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -22,15 +23,23 @@ namespace Web_API.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("")]
-        public async Task<ActionResult<IEnumerable<Sms>>> GetSentSmss()
+        [HttpGet("sms/sent.{format}/{From}&{To}"),FormatFilter]
+       
+        public async Task<ActionResult<IEnumerable<SentSmssDto>>> GetSentSmss(DateTime From, DateTime To)
         {
-            var SentSmss = await _smsService.GetSentSms();
-            var SentSmssDto = _mapper.Map <List<SmsDto>> (SentSmss);
-            return Ok(SentSmssDto);
+            var SentSmss = await _smsService.GetSentSms(From,To);
+           var SentSmsDto = _mapper.Map<List<SentSmssDto>>(SentSmss);
+          return Ok(SentSmsDto);
+       
         }
 
-       // [HttpPost("")]
-       // public 
+        [HttpGet("sms/sent.{format}"), FormatFilter]
+        public async Task<ActionResult<IEnumerable<SentSmssDto>>> GetSentSmssWithOutDate()
+        {
+            var SentSmss = await _smsService.GetSentSmsWithOutDate();
+            var SentSmsDto = _mapper.Map<List<SentSmssDto>>(SentSmss);
+            return Ok(SentSmsDto);
+        }
     }
 }
+

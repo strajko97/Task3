@@ -17,7 +17,22 @@ namespace Services.Services
             _smsrepository = smsrepository;
         }
 
-        public async Task<IEnumerable<Sms>> GetSentSms()
+        public async Task<IEnumerable<Sms>> GetSentSms(DateTime From,DateTime To)//bez parametara
+        {
+            // return await _smsrepository.GetSentSmssAsync();
+            List<Sms> Smss = (List<Sms>)_smsrepository.GetSentSmssAsync().Result;
+
+            foreach (Sms sms in Smss)
+            {
+                if (sms.SendTime<=From || sms.SendTime>=To)
+                {
+                    Smss.Remove(sms);
+                }
+            }
+            return Smss;
+        }
+
+        public async Task<IEnumerable<Sms>> GetSentSmsWithOutDate()
         {
             return await _smsrepository.GetSentSmssAsync();
         }

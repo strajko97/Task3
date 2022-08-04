@@ -8,6 +8,7 @@ namespace Core.Services
 {
     public interface ISmsService
     {
-        Task<IEnumerable<Sms>> GetSentSms();
+        Task<IEnumerable<Sms>> GetSentSms(DateTime From,DateTime To);
+        Task <IEnumerable<Sms>> GetSentSmsWithOutDate();
     }
 }

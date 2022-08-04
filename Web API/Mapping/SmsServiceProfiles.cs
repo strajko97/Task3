@@ -15,6 +15,13 @@ namespace Web_API.Profiles
             CreateMap<Sms,SmsForCountryDto>();
             CreateMap<Country,CountryForSmsDto>();
             //moze da se i mapira svaki properti pojedinacno!!!
+            CreateMap<Sms,SentSmssDto>()
+                 .ForMember(
+                            dest => dest.SendTime,
+                            from => from.MapFrom(x => $"{x.SendTime.ToString("yyyy-MM-ddTHH:mm:ssz")}")
+            );
+            CreateMap<Country, CountryForSentSmsDto>();
+            //mapiranje razlicitih tipova
 
         }
 

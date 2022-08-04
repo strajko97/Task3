@@ -1,6 +1,7 @@
 ﻿using Core.Models;
 using Core.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Data.Repositories
 
         public async Task<IEnumerable<Sms>> GetSentSmssAsync()
         {
-            return await myDbContext.Smss.Where(s=>s.Status==1).Include(s => s.Country).ToListAsync();
+            return await myDbContext.Smss.Where(s => s.Status == 1).Include(s => s.Country).ToListAsync();
         }
     }
 }
