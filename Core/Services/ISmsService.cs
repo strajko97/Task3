@@ -10,5 +10,8 @@ namespace Core.Services
     {
         Task<IEnumerable<Sms>> GetSentSms(DateTime From,DateTime To);
         Task <IEnumerable<Sms>> GetSentSmsWithOutDate();
+        Task<int> SettingCountryIdForSendSmsFromReciever(string toDecoded);
+        Task<Sms> SendSms(Sms smsToSend);
+        Task<bool> validationFromToFormatAsync(string from, string to);
     }
 }

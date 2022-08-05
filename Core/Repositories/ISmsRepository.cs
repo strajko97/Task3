@@ -9,5 +9,7 @@ namespace Core.Repositories
     public interface ISmsRepository
     {
         Task<IEnumerable<Sms>> GetSentSmssAsync();
+        Task<IEnumerable<Sms>> GetSentSmssByDateAsync(DateTime dateFrom,DateTime dateTo);
+        Task<Sms> CreateSmsAsync(Sms smsToSend);
     }
 }

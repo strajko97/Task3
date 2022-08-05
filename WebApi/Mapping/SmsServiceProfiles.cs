@@ -23,6 +23,8 @@ namespace Web_API.Profiles
             CreateMap<Country, CountryForSentSmsDto>();
             //mapiranje razlicitih tipova
 
+            CreateMap<Sms,SendSmsDto>();
+
         }
 
     }

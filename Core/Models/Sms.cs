@@ -14,7 +14,7 @@ namespace Core.Models
         public string From { get; set; }
         public string To { get; set; }
         public string Text { get; set; }
-        public DateTime SendTime { get; set; }
+        public DateTime SendTime { get; set; }= DateTime.Now;
         public int Status { get; set; }
         public int CountryId { get; set; }
         public Country Country { get; set; }

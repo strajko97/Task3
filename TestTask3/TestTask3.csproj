@@ -29,7 +29,7 @@
     <ProjectReference Include="..\Core\Core.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
-    <ProjectReference Include="..\Web API\Web API.csproj" />
+    <ProjectReference Include="..\WebAPI\WebAPI.csproj" />
     <ProjectReference Include="..\WebApi\WebApi.csproj" />
   </ItemGroup>
 
