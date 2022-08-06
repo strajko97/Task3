@@ -8,8 +8,8 @@ namespace Data
 {
     public class MyDbContext:DbContext
     {
-        public virtual DbSet<Country> Countries { get; set; }
-        public virtual DbSet<Sms> Smss { get; set; }
+        public  DbSet<Country> Countries { get; set; }
+        public  DbSet<Sms> Smss { get; set; }
 
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
