@@ -26,7 +26,7 @@ namespace Web_API.Controllers
 
         [HttpGet("sms/sent.{format}")]
         [FormatFilter]
-        public async Task<ActionResult<IEnumerable<SentSmssDto>>> GetSentSmss([FromQuery] DateTime From, [FromQuery] DateTime To)
+        public async Task<ActionResult<IEnumerable<SentSmssDto>>> GetSentSms([FromQuery] DateTime From, [FromQuery] DateTime To)
         {
             var SentSmss = await _smsService.GetSentSms(From, To);
             var SentSmsDto = _mapper.Map<List<SentSmssDto>>(SentSmss);
@@ -66,10 +66,10 @@ namespace Web_API.Controllers
                 {
                     CountryId = smsCountryId,
                     Text = Text,
-                    From = From,
+                    From = FromDecoded,
                     To = ToDecoded,
-                    Status = random.Next(0, 2)
-
+                    //Status = random.Next(0, 2)
+                    Status=1
                 };
                 await _smsService.SendSms(SmsToSend);
                 var SendSmsDto = _mapper.Map<SendSmsDto>(SmsToSend);

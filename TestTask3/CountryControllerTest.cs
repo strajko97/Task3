@@ -9,7 +9,7 @@ using Web_API.Profiles;
 namespace TestTask3
 {
     public class CountryControllerTest
-    { 
+    {
         private readonly CountryController _countryController;
 
         public CountryControllerTest()
@@ -37,19 +37,10 @@ namespace TestTask3
                 }
             });
 
-            //var mapperMock = new Mock<IMapper>();
-            //mapperMock.Setup(m=>m.Map<Country,CountryDto>
-            //    (It.IsAny<Country>()))
-            //    .Returns(new CountryDto());
-
-            var mapperConfiguration = new MapperConfiguration(cfg=>cfg.AddProfile<SmsServiceProfiles>());
+            var mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<SmsServiceProfiles>());
             var mapper = new Mapper(mapperConfiguration);
 
-            //moram da instancija kontroler
             _countryController = new CountryController(countryServiceMock.Object, mapper);
-            // CountryController countryController = new CountryController(countryServiceMock.Object, mapperMock.Object);
-            //ako se testira ponasanje mapper onda ne treba njega da mokujem 
-            //ako se ne testira ponasanje mappera onda treba da se mokuje to je ovo pod komenatrom 
         }
 
 
@@ -58,10 +49,10 @@ namespace TestTask3
         {
             //Arange
             //Act
-            var result=await _countryController.GetAllCountries();
+            var result = await _countryController.GetAllCountries();
 
             //Assert
-            Assert.IsType < ActionResult < IEnumerable < CountryDto >>> (result);
+            Assert.IsType<ActionResult<IEnumerable<CountryDto>>>(result);
         }
 
         [Fact]
@@ -69,14 +60,14 @@ namespace TestTask3
         {
             //Arrange
             //Act
-             var result = await _countryController.GetAllCountries();
-
+            var result = await _countryController.GetAllCountries();
 
             //Assert
             var actionResult = Assert.IsType<ActionResult<IEnumerable<CountryDto>>>(result);
-            Assert.Equal(3,
-                ((IEnumerable<CountryDto>)((OkObjectResult)actionResult.Result).Value).Count());
+            Assert.Equal(3, ((IEnumerable<CountryDto>)((OkObjectResult)actionResult.Result).Value).Count());
 
         }
+
+
     }
 }

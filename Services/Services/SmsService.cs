@@ -39,7 +39,7 @@ namespace Services.Services
         public async Task<int> SettingCountryIdForSendSmsFromReciever(string toDecoded)
         {
             List<Country> countries = (List<Country>)await _countryRepository.GetAllCountiesAsync();
-            int CountryCode = int.Parse(toDecoded.Substring(0, 2));
+            int CountryCode = int.Parse(toDecoded.Trim().Substring(0,2));
             foreach(Country country in countries)
             {
                 if (country.Country_Code == CountryCode)
